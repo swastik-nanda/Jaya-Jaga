@@ -1,0 +1,55 @@
+.jagannathWrapper {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.jagannathImg {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.eyelid {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #000;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 2;
+  animation: blink 2.5s infinite;
+}
+
+.left {
+  left: 2px;
+  top: 6px;
+}
+
+.right {
+  left: 22px;
+  top: 6px;
+  animation-delay: 0.05s;
+}
+
+@keyframes blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(0);
+  }
+  94%,
+  98% {
+    transform: scaleY(1);
+  }
+}

@@ -1,0 +1,21 @@
+.chakra-spinner {
+  width: 80px; /* Adjust size as needed */
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chakra-img {
+  width: 100%;
+  height: 100%;
+  animation: spin 2s linear infinite;
+  /* Optional: smooths edges for transparent PNGs */
+  image-rendering: auto;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
