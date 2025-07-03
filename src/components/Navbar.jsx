@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import JagaEyes from "../components/JagaEyes";
 
 const NAV_ITEMS = ["Home", "About", "Events", "Gallery", "Contact"];
 
@@ -16,8 +17,9 @@ function Navbar({ scrollY, scrollToSection }) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="text-2xl font-bold text-amber-900">
-            <span className="font-playfair">Ramayana</span> Festival
+          <div className="text-2xl font-bold text-amber-400 flex items-center gap-2">
+            <JagaEyes></JagaEyes>
+            <span className="font-playfair">Jay</span> Jagannath!
           </div>
           {/* Desktop Navigation */}
           <div className="hidden md:block">
