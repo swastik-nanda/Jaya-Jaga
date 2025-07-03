@@ -1,10 +1,11 @@
 import JagaEyes from "../components/JagaEyes";
 import ChakraSpinner from "../components/ChakraSpinner";
+import Navbar from "../components/Navbar";
 function Home() {
   return (
     <div>
-      <JagaEyes></JagaEyes>
-      <ChakraSpinner></ChakraSpinner>
+      <Navbar></Navbar>
+      {/* <ChakraSpinner></ChakraSpinner> */}
     </div>
   );
 }
