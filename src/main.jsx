@@ -7,6 +7,8 @@ import About from "./pages/About";
 import Festivals from "./pages/Festivals";
 import History from "./pages/History";
 import Rathyatra from "./pages/Rathyatra";
+import Gallery from "./pages/Gallery";
+import Contact from "./pages/Contact";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -17,6 +19,8 @@ createRoot(document.getElementById("root")).render(
         <Route path="/festivals" element={<Festivals />} />
         <Route path="/history" element={<History />} />
         <Route path="/rathyatra" element={<Rathyatra />} />
+        <Route path="/gallery" element={<Gallery></Gallery>}></Route>
+        <Route path="/contact" element={<Contact></Contact>}></Route>
       </Routes>
     </BrowserRouter>
   </StrictMode>

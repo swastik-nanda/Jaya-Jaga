@@ -1,4 +1,5 @@
 import React from "react";
+import GoToButton from "./GoToButton";
 
 const IMAGES = [
   "https://images.pexels.com/photos/3617457/pexels-photo-3617457.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
@@ -21,6 +22,13 @@ function GallerySection() {
             Glimpses from previous festivals and preparations for the upcoming
             celebration
           </p>
+          <div className="mt-8">
+            <GoToButton
+              buttonText="Visit the Divine Gallery"
+              route="gallery"
+              className="text-lg"
+            />
+          </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {IMAGES.map((src, index) => (

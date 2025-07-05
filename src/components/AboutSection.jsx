@@ -1,5 +1,6 @@
 import React from "react";
 import { Users, Star, Calendar, MapPin } from "lucide-react";
+import GoToButton from "../components/GoToButton"; // Adjust path if needed
 
 function AboutSection() {
   return (
@@ -14,6 +15,14 @@ function AboutSection() {
             performances, traditional arts, and cultural experiences that bring
             the Ramayana to life.
           </p>
+          {/* Button placed here */}
+          <div className="mt-8">
+            <GoToButton
+              buttonText="Learn more about Rath Yatra"
+              route="about"
+              className="text-lg"
+            />
+          </div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">

@@ -1,5 +1,6 @@
 import React from "react";
 import { Clock } from "lucide-react";
+import GoToButton from "./GoToButton";
 
 const EVENTS = [
   {
@@ -60,7 +61,15 @@ function EventsSection() {
             Seven days of magnificent performances, cultural workshops, and
             spiritual celebrations
           </p>
+          <div className="mt-8">
+            <GoToButton
+              buttonText="See Related Festivals"
+              route="festivals"
+              className="text-lg"
+            />
+          </div>
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {EVENTS.map((event, index) => (
             <div

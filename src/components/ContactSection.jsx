@@ -1,5 +1,6 @@
 import React from "react";
 import { Calendar, MapPin, Clock } from "lucide-react";
+import GoToButton from "./GoToButton";
 
 function ContactSection() {
   return (
@@ -15,6 +16,13 @@ function ContactSection() {
           <p className="text-xl opacity-90 max-w-3xl mx-auto">
             Be part of this magnificent celebration of culture and heritage
           </p>
+          <div className="mt-8">
+            <GoToButton
+              buttonText="Have a Question? Email us!"
+              route="contact"
+              className="text-lg"
+            />
+          </div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
