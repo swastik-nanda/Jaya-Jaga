@@ -116,6 +116,18 @@ const Content = ({ data }) => {
               </ul>
             </div>
           )}
+
+          {sec.ritualsList && sec.ritualsList.length > 0 && (
+            <div className="my-6">
+              <ul className="list-disc list-inside space-y-2">
+                {sec.ritualsList.map((ritual, i) => (
+                  <li key={i} className="text-gray-700">
+                    {ritual}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       ))}
 
