@@ -32,7 +32,7 @@ const Content = ({ data }) => {
               />
             ))}
           {/* Render groups if present */}
-          {sec.groups && Array.isArray(sec.groups) && sec.groups.length > 0 && (
+          {sec.groups && sec.groups.length > 0 && (
             <div className="overflow-x-auto mt-6">
               <table className="min-w-full border border-amber-200 rounded-lg">
                 <thead>
@@ -58,6 +58,62 @@ const Content = ({ data }) => {
                   ))}
                 </tbody>
               </table>
+            </div>
+          )}
+
+          {sec.pahandiForms && sec.pahandiForms.length > 0 && (
+            <div className="overflow-x-auto mt-6">
+              <table className="min-w-full border border-amber-200 rounded-lg">
+                <thead>
+                  <tr className="bg-amber-100">
+                    <th className="px-4 py-2 text-left font-semibold text-amber-900">
+                      Festival
+                    </th>
+                    <th className="px-4 py-2 text-left font-semibold text-amber-900">
+                      Details
+                    </th>
+                    <th className="px-4 py-2 text-left font-semibold text-amber-900">
+                      Type of Movement
+                    </th>
+                    <th className="px-4 py-2 text-left font-semibold text-amber-900">
+                      Form of Pahandi
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {sec.pahandiForms.map((item, i) => (
+                    <tr key={i} className="border-t">
+                      <td className="px-4 py-2 font-semibold text-amber-800">
+                        {item.festival}
+                      </td>
+                      <td className="px-4 py-2 text-gray-700">
+                        {item.details}
+                      </td>
+                      <td className="px-4 py-2 text-gray-700">
+                        {item.typeOfMovement}
+                      </td>
+                      <td className="px-4 py-2 text-gray-700">
+                        {item.formOfPahandi}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+
+          {sec.tahiaFacts && sec.tahiaFacts.length > 0 && (
+            <div className="my-6">
+              <h3 className="text-xl font-semibold text-amber-700 mb-2 font-playfair">
+                Tahia Facts
+              </h3>
+              <ul className="list-disc list-inside space-y-2">
+                {sec.tahiaFacts.map((fact, i) => (
+                  <li key={i} className="text-gray-700">
+                    {fact}
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
         </div>

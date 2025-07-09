@@ -123,5 +123,99 @@
         ]
       }
     ]
+  },
+  {
+    "id": "pahandi-bije",
+    "heading": "Pahandi Bije & Tahia Lagi",
+    "sections": [
+      {
+        "subheading": "The Spectacular Pahandi Bije",
+        "content": [
+          "The journey of the deities from Garbha Griha (Sanctum Sanctorum) to outside, starts with a spectacular royal procession called Pahandi Bije. \"Pahandi\" is originated from the Sanskrit word \"Padamundanam\" meaning a slow step-by-step imbalanced movement just like a child learning to walk. \"Bije\" stands for procession of the King or the Gods.",
+          "During Pahandi, the deities are literally pulled, pushed and dragged in rhythmic movement with the accompaniment of the beat of cymbals, drums and chanting of their names in chorus by devotees. The Deities do not touch the floor during the Pahandi ritual. Lord Sudarshana and Goddess Subhadra do not have arms and are not heavy, so they are carried on the shoulders in a reclining position, and they do not touch the floor. On the other hand, Lord Jagannath and Lord Balabhadra are quite heavy and it is difficult to move them without touching the floor, so a wooden pillar is fixed to their backs and thick silken ropes are tied round their heads and waists. During Pahandi Bije, the wooden pillar touches the floor but not the Deities. Lord Balabhadra & Lord Jagannath are carried all the way with little pauses in forward and backward motions."
+        ]
+      },
+      {
+        "subheading": "Forms of Pahandi",
+        "content": [
+          "There are two forms of Pahandi. The first form is called \"Dhadi Pahandi\". In Odia language 'Dhadi' means 'Line', so in Dhadi Pahandi procession the Deities move simultaneously in a line one after the other in close succession. In this form one can see all the four Gods, in a line, one after the other. Dhadi Pahandi is a group movement.",
+          "The second form is called \"Goti Pahandi\". In Odia language 'Goti' means 'Alone', so in Goti Pahandi procession one Deity moves at a time. The next Deity moves only after the preceding Deity has reached the appropriate place. Goti Pahandi is an individual movement.",
+          "During Pahandi, irrespective of the form, Lord Sudarshana moves first, then Lord Balabhadra, then Goddess Subhadra and finally Lord Jagannath are taken out from the inner Sanctum."
+        ],
+        "pahandiForms": [
+          {
+            "festival": "Snana Yatra (Bathing Festival)",
+            "details": "On early morning from inner Sanctum of Jagannath Temple to the bathing pandal",
+            "typeOfMovement": "Outward",
+            "formOfPahandi": "Dhadi Pahandi"
+          },
+          {
+            "festival": "Snana Yatra (Bathing Festival)",
+            "details": "On the evening from bathing pandal to Anasara Pindi of Jagannath Temple",
+            "typeOfMovement": "Inward",
+            "formOfPahandi": "Goti Pahandi"
+          },
+          {
+            "festival": "Ratha Yatra (Car Festival)",
+            "details": "From inner Sanctum of Jagannath Temple to the Chariot",
+            "typeOfMovement": "Outward",
+            "formOfPahandi": "Dhadi Pahandi"
+          },
+          {
+            "festival": "Ratha Yatra (Car Festival)",
+            "details": "From the Chariot to Adapa Mandap of Gundicha Temple",
+            "typeOfMovement": "Inward",
+            "formOfPahandi": "Goti Pahandi"
+          },
+          {
+            "festival": "Bahuda Yatra (Return Car Festival)",
+            "details": "From Adapa Mandap of Gundicha Temple to the Chariot",
+            "typeOfMovement": "Outward",
+            "formOfPahandi": "Dhadi Pahandi"
+          },
+          {
+            "festival": "Niladri Bije (Home entry after Car Festival)",
+            "details": "From the Chariot to inner Sanctum of Jagannath Temple",
+            "typeOfMovement": "Inward",
+            "formOfPahandi": "Goti Pahandi"
+          }
+        ],
+        "content2": [
+          "Dhadi Pahandi is followed during outward movements and Goti Pahandi is followed during inward movements."
+        ]
+      },
+      {
+        "subheading": "Senapata Lagi",
+        "content": [
+          "The ritual to fix the wooden pillar to the back of Lord Jagannath and Lord Balabhadra and to tie the silk rope round their heads and waists is called \"Senapata Lagi\"."
+        ]
+      },
+      {
+        "subheading": "Tahia: The Floral Crown",
+        "content": [
+          "During the Pahandi rituals of Snana Yatra, Ratha Yatra, Bahuda Yatra and Niladri Bije, Lord Jagannath and Lord Balabhadra are decorated with a large floral crown on their heads, whereas Goddess Subhadra and Lord Sudarshana are adorned with small floral crowns. This floral crown is called \"Tahiya\" or \"Tahia\"."
+        ],
+        "tahiaFacts": [
+          "Tahiya is made of a variety of white, orange and lotus flowers, basil leaves, cane, bamboo, banana stem, pieces of thermocol and other colourful elements.",
+          "Bamboo sticks are used to structure the frame of the tahiyas. The shape of the tahiya is like the shape of a betel leaf. Altogether, 37 bamboo sticks are used in the tahiya frame meant for Lord Jagannath and 33 bamboo sticks for that of Lord Balabhadra.",
+          "In a year, a total of 24 floral tahias (4 Deities X 6 Pahandi ceremonies) are put together for Lord Jagannath, Balabhadra, Sudarshan and Goddess Subhadra.",
+          "The privilege of providing these tahias is with the Raghava Das Matha of Puri - a monastery associated with the Jagannath Temple. As per the custom, Raghava Das Matha prepares and supplies these 24 tahias for the Deities. Raghava Das Matha is located in front of the southern gate of Jagannath Temple.",
+          "Tahias are never reused and every year for each occasion new tahias are prepared by Raghava Das Matha.",
+          "Lord Jagannath's tahia is known as \"Mayura Chandrika\" and is more than 7 feet in height.",
+          "Lord Balabhadra's tahia is known as \"Mayura Chandrika\" and is around 6 feet in height.",
+          "Goddess Subhadra's tahia is known as \"Pania\" and is 3 feet in height.",
+          "Lord Sudarshan's tahia is known as \"Chula\" and is 2 feet in height.",
+          "Size of the tahias is also vary based on the occasion. The tahias used on the day of Ratha Yatra are bigger in size as compared to tahias used on Bahuda Yatra. The entrance door of the Jagannath Temple is bigger than the door of the Gundicha temple, so small size tahias are prepared for Bahuda Yatra.",
+          "On the day of Car Festival, after being brought to the Jagannath Temple from Raghav Das Matha, these tahias are kept in the Mahalaxmi Temple, it is like a gift from Goddess Laxmi to Lord Jagannath as He embarks on his annual sojourn."
+        ]
+      },
+      {
+        "subheading": "Legend Behind Tahia",
+        "content": [
+          "According to the legend, a devotee named Raghu Arakhita Das was meditating under the burning Sun near Jagannath Temple's Lion's gate. The then Gajapati King of Puri arranged a Tati (cover/shade made with bamboo) for him to save him from the heat of the Sun. However, the devotee broke it down as he found no use for it.",
+          "Lord Jagannath sensed that His devotee was in trouble, He took the form of a milkman and stood behind Raghu Arakhita holding a traditional umbrella to save him from the Sun rays. The devotee in return requested the Lord to allow him to provide tahias for the Deities during the Car Festival to cover them. Lord Jagannath accepted His devotee's request and since then, Raghava Das matha, where Raghu Arakhita Das was staying, has been providing tahias for the Deities."
+        ]
+      }
+    ]
   }
 ]

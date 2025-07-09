@@ -65,7 +65,7 @@ function About() {
             <img
               src="/ratha-yatra/raths-wp.jpg"
               alt="Festival Hero"
-              className="w-full h-80 sm:h-[32rem] object-cover brightness-95"
+              className="w-full h-80 sm:h-[32rem] object-cover brightness-95 hover:scale-105 transition-all dur"
             />
           </div>
 
@@ -85,7 +85,7 @@ function About() {
                       type="button"
                       onClick={() => scrollToSection(item.id)}
                       className={
-                        "w-full text-left py-1 transition-colors duration-150 " +
+                        "w-full text-left cursor-pointer py-1 hover:scale-105 transition-all duration-300 " +
                         (item.active
                           ? "text-blue-800 font-bold hover:underline"
                           : "text-blue-800 font-semibold hover:underline")
@@ -103,7 +103,7 @@ function About() {
                     <button
                       type="button"
                       onClick={() => scrollToSection(item.id)}
-                      className="w-full text-left py-1 text-blue-800 font-semibold hover:underline transition-colors duration-150"
+                      className="w-full text-left py-1 text-blue-800 font-semibold hover:underline hover:scale-105 transition-all duration-300"
                     >
                       {i + 9}. {item.text}
                     </button>
