@@ -5,14 +5,13 @@ function HeroSection({ scrollY, scrollToSection }) {
   return (
     <section
       id="home"
-      className="relative h-screen flex items-center justify-center overflow-hidden"
+      className="relative h-screen w-screen flex items-center justify-center overflow-hidden"
     >
       {/* Parallax Background */}
       <div
         className="absolute inset-0 bg-gradient-to-br from-amber-900/90 via-red-900/85 to-orange-900/90"
         style={{
-          backgroundImage:
-            "url(https://images.pexels.com/photos/3617457/pexels-photo-3617457.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop)",
+          backgroundImage: "url(/dieties/main-dieties-wp.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
@@ -23,9 +22,9 @@ function HeroSection({ scrollY, scrollToSection }) {
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 font-playfair">
-            Ramayana Festival
+            Jay Jagannath
             <span className="block text-3xl sm:text-4xl lg:text-5xl mt-2 text-amber-300">
-              2025
+              Shubha Ratha Yatra
             </span>
           </h1>
           <p className="text-xl sm:text-2xl mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed">

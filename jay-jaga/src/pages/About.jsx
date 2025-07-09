@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import NavBarSecondary from "../components/NavBarSecondary";
+import data from "../data/data.json";
+import Content from "../Contents/Content";
 
 // Table of contents data
 const toc = [
@@ -113,18 +115,23 @@ function About() {
 
           {/* Example empty sections for scroll targets (add your content later) */}
           <div className="mt-24 space-y-24">
-            {toc.map((item, idx) => (
-              <section
-                key={item.id}
-                id={item.id}
-                className="max-w-4xl mx-auto py-12 border-b"
-              >
-                <h3 className="text-2xl font-bold text-amber-900 mb-4">
-                  {idx + 1}. {item.text}
-                </h3>
-                {/* Add your section content here */}
-              </section>
-            ))}
+            {toc.map((item, idx) => {
+              // Find the data for this section by id
+              const sectionData = data.find((d) => d.id === item.id);
+              return (
+                <section
+                  key={item.id}
+                  id={item.id}
+                  className="max-w-4xl mx-auto py-12 border-b"
+                >
+                  <h3 className="text-2xl font-bold text-amber-900 mb-4">
+                    {idx + 1}. {item.text}
+                  </h3>
+                  {/* Render the content for this section */}
+                  <Content data={sectionData} />
+                </section>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -133,27 +140,3 @@ function About() {
 }
 
 export default About;
-
-{
-  /* Swipeable Image Gallery
-  <section className="my-16">
-          <div className="max-w-3xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-amber-900 mb-4 font-playfair text-center">
-              Festival Gallery
-            </h2>
-            <p className="text-lg text-gray-700 mb-6 text-center">
-              Swipe or click through some of our favorite festival moments.
-            </p>
-            <ImageGallery
-              items={galleryImages}
-              showPlayButton={false}
-              showFullscreenButton={true}
-              showThumbnails={true}
-              slideDuration={350}
-            />
-          </div>
-        </section> */
-}
-{
-  /* Content and Gallery Grid */
-}
