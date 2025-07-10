@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import Navbar from "../components/Navbar";
 import NavBarSecondary from "../components/NavBarSecondary";
 import data from "../data/data.json";
 import Content from "../Contents/Content";
@@ -23,7 +21,6 @@ const toc = [
   { text: "Nandighosa - Chariot of Jagannath", id: "nandighosa" },
   { text: "Taladhwaja - Chariot of Balabhadra", id: "taladhwaja" },
   { text: "Devadalana - Chariot of Subhadra", id: "devadalana" },
-  { text: "Car Festival Photo Gallery", id: "photo-gallery" },
 ];
 
 const scrollToSection = (sectionId) => {
@@ -99,11 +96,11 @@ function About() {
               {/* Right Column */}
               <ul className="py-4 px-6 space-y-2">
                 {right.map((item, i) => (
-                  <li key={item.id} className="border-b last:border-b-0">
+                  <li key={item.id} className="border-b last:border-b-0 ">
                     <button
                       type="button"
                       onClick={() => scrollToSection(item.id)}
-                      className="w-full text-left py-1 text-blue-800 font-semibold hover:underline hover:scale-105 transition-all duration-300"
+                      className="w-full text-left py-1 text-blue-800 cursor-pointer font-semibold hover:underline hover:scale-105 transition-all duration-300"
                     >
                       {i + 9}. {item.text}
                     </button>

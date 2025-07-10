@@ -1,6 +1,7 @@
-import React from "react";
 // import ImageGallery from "react-image-gallery";
 // import "react-image-gallery/styles/css/image-gallery.css";
+
+import ScrollUpButton from "../components/ScrollUpButton";
 
 const Content = ({ data }) => {
   if (!data) return null;
@@ -128,6 +129,56 @@ const Content = ({ data }) => {
               </ul>
             </div>
           )}
+
+          {sec.ornamentsList &&
+            Array.isArray(sec.ornamentsList) &&
+            sec.ornamentsList.length > 0 && (
+              <div className="my-6">
+                <h3 className="text-xl font-semibold text-amber-700 mb-2 font-playfair">
+                  Ornaments Used in Suna Vesha
+                </h3>
+                <ul className="list-disc list-inside space-y-2">
+                  {sec.ornamentsList.map((ornament, i) => (
+                    <li key={i} className="text-gray-700">
+                      {ornament}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          {sec.ingredientsList &&
+            Array.isArray(sec.ingredientsList) &&
+            sec.ingredientsList.length > 0 && (
+              <div className="my-6">
+                <h3 className="text-xl font-semibold text-amber-700 mb-2 font-playfair">
+                  Ingredients Used in Adhara Pana
+                </h3>
+                <ul className="list-disc list-inside space-y-2">
+                  {sec.ingredientsList.map((ingredient, i) => (
+                    <li key={i} className="text-gray-700">
+                      {ingredient}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          {sec.factsList &&
+            Array.isArray(sec.factsList) &&
+            sec.factsList.length > 0 && (
+              <div className="my-6">
+                <h3 className="text-xl font-semibold text-amber-700 mb-2 font-playfair">
+                  Quick Facts about the Charriot:
+                </h3>
+                <ul className="list-disc list-inside space-y-2">
+                  {sec.factsList.map((fact, i) => (
+                    <li key={i} className="text-gray-700">
+                      {fact}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          <ScrollUpButton></ScrollUpButton>
         </div>
       ))}
 
