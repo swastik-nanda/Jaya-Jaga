@@ -9,6 +9,7 @@ import History from "./pages/History";
 import Rathyatra from "./pages/Rathyatra";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
+import HotelBooking from "./pages/HotelBooking";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -21,6 +22,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/rathyatra" element={<Rathyatra />} />
         <Route path="/gallery" element={<Gallery></Gallery>}></Route>
         <Route path="/contact" element={<Contact></Contact>}></Route>
+        <Route path="/hotels" element={<HotelBooking></HotelBooking>}></Route>
       </Routes>
     </BrowserRouter>
   </StrictMode>

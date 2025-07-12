@@ -2,47 +2,68 @@ import React from "react";
 import { Clock } from "lucide-react";
 import GoToButton from "./GoToButton";
 
+// Updated event schedule
 const EVENTS = [
   {
     day: "Day 1",
-    title: "Opening Ceremony",
-    time: "7:00 PM",
-    description:
-      "Grand opening with traditional lamp lighting and cultural performances",
+    title: "Pahandi Bije",
+    time: "7:00 AM",
+    description: "Ceremonial procession of the deities to the chariots.",
     highlight: true,
   },
   {
-    day: "Day 2-3",
-    title: "Epic Performances",
-    time: "6:00 PM",
+    day: "Day 2-4",
+    title: "Adapa Abhada + Puri Sightseeing",
+    time: "10:00 AM",
     description:
-      "Dramatic presentations of key Ramayana episodes with live music",
-  },
-  {
-    day: "Day 4",
-    title: "Cultural Workshops",
-    time: "2:00 PM",
-    description:
-      "Interactive sessions on traditional arts, music, and storytelling",
+      "Special Mahaprasad at Gundicha Temple and guided tours of Puri’s landmarks.",
   },
   {
     day: "Day 5",
-    title: "Dance Spectacular",
+    title: "Hera Panchami",
     time: "7:30 PM",
-    description: "Classical dance performances depicting the epic journey",
+    description:
+      "Celebration of Goddess Lakshmi’s symbolic visit to Gundicha Temple.",
   },
   {
     day: "Day 6",
-    title: "Art Exhibition",
-    time: "10:00 AM",
-    description: "Gallery showcasing contemporary interpretations of the epic",
+    title: "Ratha Moda + Sandhya Adapa Mandap Darshan",
+    time: "6:00 PM",
+    description: "Turning of the chariots and evening darshan at Adapa Mandap.",
   },
   {
     day: "Day 7",
-    title: "Grand Finale",
-    time: "8:00 PM",
-    description: "Closing ceremony with fireworks and community celebration",
+    title: "Bahuda Yatra + Lakshmi Narayan Bheta",
+    time: "8:00 AM",
+    description:
+      "Return journey of the deities and the divine meeting of Lakshmi and Narayan.",
     highlight: true,
+  },
+  {
+    day: "Day 8",
+    title: "Suna Vesha",
+    time: "4:00 PM",
+    description: "Deities adorned with gold ornaments in a grand display.",
+  },
+  {
+    day: "Day 9",
+    title: "Adhara Pana",
+    time: "6:00 PM",
+    description:
+      "Offering of a special sweet drink to the deities on the chariots.",
+  },
+  {
+    day: "Day 10",
+    title: "Niladri Bije + Rasogolla Divas",
+    time: "7:00 PM",
+    description:
+      "Deities return to the main temple; celebration of Rasogolla Divas.",
+  },
+  {
+    day: "Day 11",
+    title: "Nilachal Abhada",
+    time: "12:00 PM",
+    description: "Resumption of regular Mahaprasad at Jagannath Temple.",
   },
 ];
 
@@ -58,14 +79,20 @@ function EventsSection() {
             Festival Schedule
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Seven days of magnificent performances, cultural workshops, and
+            Eleven days of magnificent rituals, cultural experiences, and
             spiritual celebrations
           </p>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
             <GoToButton
               buttonText="See Related Festivals"
               route="festivals"
               className="text-lg"
+            />
+            {/* New Book Hotels button */}
+            <GoToButton
+              buttonText="Book Hotels"
+              route="hotels"
+              className="text-lg bg-amber-500 hover:bg-amber-600 text-white font-semibold shadow-md"
             />
           </div>
         </div>

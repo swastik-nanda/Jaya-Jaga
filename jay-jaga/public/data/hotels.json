@@ -1,0 +1,202 @@
+[
+  {
+    "id": "5126a559...",
+    "name": "Blue Lily",
+    "lat": 19.788431900362216,
+    "lng": 85.79558857683568,
+    "address": "Blue Lily, Marine Drive Road, - 752001, Odisha, India",
+    "price": 3200,
+    "rating": 4.1,
+    "image": null
+  },
+  {
+    "id": "51e769254e...",
+    "name": "Empires Hotel",
+    "lat": 19.787195850362153,
+    "lng": 85.79518464711838,
+    "address": "Empires Hotel, Marine Drive Road, - 752001, Odisha, India",
+    "price": 4200,
+    "rating": 4.3,
+    "image": null
+  },
+  {
+    "id": "511249b4ad...",
+    "name": "Mayfair Heritage",
+    "lat": 19.798313650362715,
+    "lng": 85.83378164869308,
+    "address": "Mayfair Heritage, 122, 124, 125, Chakra Tirtha Road, Puri - 752002, Odisha, India",
+    "price": 6500,
+    "rating": 4.6,
+    "image": null
+  },
+  {
+    "id": "514411f265...",
+    "name": "Samudra Hotel",
+    "lat": 19.799017300362763,
+    "lng": 85.83614491118811,
+    "address": "Samudra Hotel, Chakra Tirtha Road, Puri - 752002, Odisha, India",
+    "price": 2600,
+    "rating": 4.0,
+    "image": null
+  },
+  {
+    "id": "51e6186b50...",
+    "name": "Chanakya BNR Hotel",
+    "lat": 19.802054000362908,
+    "lng": 85.83790979822842,
+    "address": "Chanakya BNR Hotel, Chakra Tirtha Road, Puri - 752002, Odisha, India",
+    "price": 4500,
+    "rating": 4.4,
+    "image": null
+  },
+  {
+    "id": "51166d5640...",
+    "name": "Panthanivas",
+    "lat": 19.79805800036271,
+    "lng": 85.83180244865466,
+    "address": "Panthanivas, Marine Drive Road, Puri - 752002, Odisha, India",
+    "price": 1900,
+    "rating": 3.8,
+    "image": null
+  },
+  {
+    "id": "513f4fada5...",
+    "name": "Mayfair Waves",
+    "lat": 19.79858845036273,
+    "lng": 85.8343290512539,
+    "address": "Mayfair Waves, Chakra Tirtha Road, Puri - 752002, Odisha, India",
+    "price": 7100,
+    "rating": 4.7,
+    "image": null
+  },
+  {
+    "id": "5179f6b8b8...",
+    "name": "Hotel Vijoya International",
+    "lat": 19.798902750362743,
+    "lng": 85.83506601393482,
+    "address": "Hotel Vijoya International, Marine Drive Road, Puri - 752001, Odisha, India",
+    "price": 4000,
+    "rating": 4.2,
+    "image": null
+  },
+  {
+    "id": "51f3d25eba...",
+    "name": "Hotel Golden Palace",
+    "lat": 19.797591400362684,
+    "lng": 85.83140429744871,
+    "address": "Hotel Golden Palace, VIP Road, Puri - 752001, Odisha, India",
+    "price": 3100,
+    "rating": 4.0,
+    "image": null
+  },
+  {
+    "id": "516b3bc0c7...",
+    "name": "NRS Royal Palace",
+    "lat": 19.787746450362185,
+    "lng": 85.79942506573359,
+    "address": "NRS Royal Palace, Marine Drive Road, - 752001, Odisha, India",
+    "price": 3800,
+    "rating": 4.1,
+    "image": null
+  },
+  {
+    "id": "512b1b593f...",
+    "name": "Swosti Premium",
+    "lat": 19.786353000362112,
+    "lng": 85.79383834554453,
+    "address": "Swosti Premium, Marine Drive Road, - 752001, Odisha, India",
+    "price": 3300,
+    "rating": 4.2,
+    "image": null
+  },
+  {
+    "id": "514eae126f...",
+    "name": "Hotel Prabhupada",
+    "lat": 19.790009350362297,
+    "lng": 85.80697228264145,
+    "address": "Hotel Prabhupada, Marine Drive Road, Swargadwara, Puri - 752001, Odisha, India",
+    "price": 3500,
+    "rating": 4.1,
+    "image": null
+  },
+  {
+    "id": "51baa46100...",
+    "name": "Hotel Shreehari",
+    "lat": 19.790116700362304,
+    "lng": 85.80737313781256,
+    "address": "Hotel Shreehari, Marine Drive Road, Swargadwara, Puri - 752001, Odisha, India",
+    "price": 2800,
+    "rating": 4.0,
+    "image": null
+  },
+  {
+    "id": "519a8106fd...",
+    "name": "Hans Coco Palms",
+    "lat": 19.78974905036229,
+    "lng": 85.80499196658494,
+    "address": "Hans Coco Palms, Marine Drive Road, - 752001, Odisha, India",
+    "price": 4700,
+    "rating": 4.3,
+    "image": null
+  },
+  {
+    "id": "5184c775e0...",
+    "name": "Hotel Sonar Bangla Puri",
+    "lat": 19.788923700362243,
+    "lng": 85.80431376935854,
+    "address": "Hotel Sonar Bangla Puri, Marine Drive Road, - 752001, Odisha, India",
+    "price": 3900,
+    "rating": 4.2,
+    "image": null
+  },
+  {
+    "id": "515ac088f8...",
+    "name": "Hotel Jeevan Sandhya",
+    "lat": 19.786719300362133,
+    "lng": 85.79479802469851,
+    "address": "Hotel Jeevan Sandhya, Marine Drive Road, - 752001, Odisha, India",
+    "price": 2600,
+    "rating": 3.9,
+    "image": null
+  },
+  {
+    "id": "51abdf9965...",
+    "name": "Treebo Siddharth International",
+    "lat": 19.78926330036226,
+    "lng": 85.79915752436379,
+    "address": "Treebo Siddharth International, Marine Drive Road, - 752001, Odisha, India",
+    "price": 3100,
+    "rating": 4.0,
+    "image": null
+  },
+  {
+    "id": "51a6316b73...",
+    "name": "Hotel New Sea Hawk",
+    "lat": 19.792323200362418,
+    "lng": 85.81527409999998,
+    "address": "Hotel New Sea Hawk, ew Marine Drive, Swargadwar, Marine Drive Road, Swargadwara, Puri - 752001, Odisha, India",
+    "price": 4300,
+    "rating": 4.4,
+    "image": null
+  },
+  {
+    "id": "51d6d3fd52...",
+    "name": "Hotel Pulin Puri",
+    "lat": 19.793680800362488,
+    "lng": 85.8196609,
+    "address": "Hotel Pulin Puri, Marine Drive Road, Swargadwara, Puri - 752001, Odisha, India",
+    "price": 2200,
+    "rating": 3.7,
+    "image": null
+  },
+  {
+    "id": "5158141b98...",
+    "name": "Santana",
+    "lat": 19.805334500363067,
+    "lng": 85.8516598,
+    "address": "Santana, Chakra Tirtha Road, Puri - 752002, Odisha, India",
+    "price": 2000,
+    "rating": 3.9,
+    "image": null
+  }
+]

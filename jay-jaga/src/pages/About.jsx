@@ -1,5 +1,5 @@
 import NavBarSecondary from "../components/NavBarSecondary";
-import data from "../data/data.json";
+import data from "../data.json";
 import Content from "../Contents/Content";
 
 // Table of contents data
