@@ -1,9 +1,8 @@
-// controllers/hotelController.js
-
 const axios = require("axios");
 const fs = require("fs");
 const path = require("path");
 const dotenv = require("dotenv");
+const { v4: uuidv4 } = require("uuid");
 dotenv.config();
 
 const GEOAPIFY_API_KEY = process.env.GEO_API_KEY;
@@ -15,7 +14,7 @@ const fetchHotels = async (req, res) => {
     const response = await axios.get(url);
 
     const hotels = response.data.features.map((f) => ({
-      id: f.properties.place_id,
+      id: uuidv4(), // generate a random unique ID
       name: f.properties.name || "Unnamed Hotel",
       lat: f.geometry.coordinates[1],
       lng: f.geometry.coordinates[0],
@@ -28,7 +27,7 @@ const fetchHotels = async (req, res) => {
     if (req.query.save) {
       const filePath = path.join(
         __dirname,
-        "../../jay-jaga/src/data/hotels.json"
+        "../../jay-jaga/public/data/hotels.json"
       );
       fs.writeFileSync(filePath, JSON.stringify(hotels, null, 2));
       console.log("✅ Hotel data saved to hotels.json");

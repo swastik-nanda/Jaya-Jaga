@@ -41,7 +41,10 @@ export default function HotelBooking() {
 
         {/* List */}
         <div className="md:w-1/2 space-y-6 overflow-y-auto max-h-[75vh] pr-2">
-          <HotelList hotels={filteredHotels} onBook={setSelectedHotel} />
+          <HotelList
+            hotels={filteredHotels}
+            setSelectedHotel={setSelectedHotel}
+          />
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 [
   {
-    "id": "5126a559...",
+    "id": "6a32e4e8-f299-4b73-ac95-8b5712341d80",
     "name": "Blue Lily",
     "lat": 19.788431900362216,
     "lng": 85.79558857683568,
@@ -10,7 +10,7 @@
     "image": null
   },
   {
-    "id": "51e769254e...",
+    "id": "087446d8-61ef-461a-b92f-6db0917963c3",
     "name": "Empires Hotel",
     "lat": 19.787195850362153,
     "lng": 85.79518464711838,
@@ -20,7 +20,7 @@
     "image": null
   },
   {
-    "id": "511249b4ad...",
+    "id": "8a654f9d-b03b-487a-ba20-3d08fbbe635f",
     "name": "Mayfair Heritage",
     "lat": 19.798313650362715,
     "lng": 85.83378164869308,
@@ -30,7 +30,7 @@
     "image": null
   },
   {
-    "id": "514411f265...",
+    "id": "b6f91c7c-b2e1-4866-9c5a-7fbe6abae6b6",
     "name": "Samudra Hotel",
     "lat": 19.799017300362763,
     "lng": 85.83614491118811,
@@ -40,7 +40,7 @@
     "image": null
   },
   {
-    "id": "51e6186b50...",
+    "id": "c6686524-b451-411e-b709-984f2b33f21e",
     "name": "Chanakya BNR Hotel",
     "lat": 19.802054000362908,
     "lng": 85.83790979822842,
@@ -50,7 +50,7 @@
     "image": null
   },
   {
-    "id": "51166d5640...",
+    "id": "c681b71f-c9b3-4c80-a9a4-8fbb0966db43",
     "name": "Panthanivas",
     "lat": 19.79805800036271,
     "lng": 85.83180244865466,
@@ -60,7 +60,7 @@
     "image": null
   },
   {
-    "id": "513f4fada5...",
+    "id": "bbf00d17-1f8d-482d-9525-7349247029ea",
     "name": "Mayfair Waves",
     "lat": 19.79858845036273,
     "lng": 85.8343290512539,
@@ -70,7 +70,7 @@
     "image": null
   },
   {
-    "id": "5179f6b8b8...",
+    "id": "daf9b44a-9afa-4742-b7d4-4160c7202ddb",
     "name": "Hotel Vijoya International",
     "lat": 19.798902750362743,
     "lng": 85.83506601393482,
@@ -80,7 +80,7 @@
     "image": null
   },
   {
-    "id": "51f3d25eba...",
+    "id": "4f3d2602-fc07-4e9f-a81e-3d25444651ce",
     "name": "Hotel Golden Palace",
     "lat": 19.797591400362684,
     "lng": 85.83140429744871,
@@ -90,7 +90,7 @@
     "image": null
   },
   {
-    "id": "516b3bc0c7...",
+    "id": "189398cd-06bc-4216-9797-9923042ec885",
     "name": "NRS Royal Palace",
     "lat": 19.787746450362185,
     "lng": 85.79942506573359,
@@ -100,7 +100,7 @@
     "image": null
   },
   {
-    "id": "512b1b593f...",
+    "id": "66846803-4359-4198-af3b-88443da366be",
     "name": "Swosti Premium",
     "lat": 19.786353000362112,
     "lng": 85.79383834554453,
@@ -110,7 +110,7 @@
     "image": null
   },
   {
-    "id": "514eae126f...",
+    "id": "f7d26918-50a3-4896-989a-d45d4ec7b350",
     "name": "Hotel Prabhupada",
     "lat": 19.790009350362297,
     "lng": 85.80697228264145,
@@ -120,7 +120,7 @@
     "image": null
   },
   {
-    "id": "51baa46100...",
+    "id": "954248ef-213b-411b-a006-d3e87c3e63c1",
     "name": "Hotel Shreehari",
     "lat": 19.790116700362304,
     "lng": 85.80737313781256,
@@ -130,7 +130,7 @@
     "image": null
   },
   {
-    "id": "519a8106fd...",
+    "id": "a0a2066e-4c1f-4ced-bb99-1a8e9c557870",
     "name": "Hans Coco Palms",
     "lat": 19.78974905036229,
     "lng": 85.80499196658494,
@@ -140,7 +140,7 @@
     "image": null
   },
   {
-    "id": "5184c775e0...",
+    "id": "aa1e82c8-3864-48eb-aa33-45bb9aba2aea",
     "name": "Hotel Sonar Bangla Puri",
     "lat": 19.788923700362243,
     "lng": 85.80431376935854,
@@ -150,7 +150,7 @@
     "image": null
   },
   {
-    "id": "515ac088f8...",
+    "id": "f5fa8aab-568a-4fa8-843f-0b0466143f78",
     "name": "Hotel Jeevan Sandhya",
     "lat": 19.786719300362133,
     "lng": 85.79479802469851,
@@ -160,17 +160,17 @@
     "image": null
   },
   {
-    "id": "51abdf9965...",
+    "id": "a37d6c95-cc13-40f1-a468-5b6a4e7283d8",
     "name": "Treebo Siddharth International",
     "lat": 19.78926330036226,
     "lng": 85.79915752436379,
-    "address": "Treebo Siddharth International, Marine Drive Road, - 752001, Odisha, India",
+    "address": "Treebo Siddharth International, 182-184, 189-191, Marine Drive Road, - 752001, Odisha, India",
     "price": 3100,
     "rating": 4.0,
     "image": null
   },
   {
-    "id": "51a6316b73...",
+    "id": "dada5602-8616-419e-9c15-59d439576175",
     "name": "Hotel New Sea Hawk",
     "lat": 19.792323200362418,
     "lng": 85.81527409999998,
@@ -180,7 +180,7 @@
     "image": null
   },
   {
-    "id": "51d6d3fd52...",
+    "id": "6a89cc94-10bf-446d-9079-b9fe4d5dface",
     "name": "Hotel Pulin Puri",
     "lat": 19.793680800362488,
     "lng": 85.8196609,
@@ -190,7 +190,7 @@
     "image": null
   },
   {
-    "id": "5158141b98...",
+    "id": "5dec2eae-86bc-4fe8-9517-9df0d083a2db",
     "name": "Santana",
     "lat": 19.805334500363067,
     "lng": 85.8516598,

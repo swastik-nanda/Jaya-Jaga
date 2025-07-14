@@ -10,6 +10,7 @@ import Rathyatra from "./pages/Rathyatra";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import HotelBooking from "./pages/HotelBooking";
+import ConfirmBooking from "./pages/ConfirmBooking";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -23,6 +24,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/gallery" element={<Gallery></Gallery>}></Route>
         <Route path="/contact" element={<Contact></Contact>}></Route>
         <Route path="/hotels" element={<HotelBooking></HotelBooking>}></Route>
+        <Route path="/confirm-booking/:id" element={<ConfirmBooking />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

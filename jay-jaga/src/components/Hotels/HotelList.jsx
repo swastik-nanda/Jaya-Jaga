@@ -1,4 +1,13 @@
-export default function HotelList({ hotels, onBook }) {
+import { useNavigate } from "react-router-dom";
+
+export default function HotelList({ hotels, setSelectedHotel }) {
+  const navigate = useNavigate();
+
+  const handleOnBook = (hotel) => {
+    setSelectedHotel(hotel);
+    navigate(`/confirm-booking/${hotel.id}`);
+  };
+
   return (
     <div className="grid gap-6">
       {hotels.map((hotel) => (
@@ -6,12 +15,15 @@ export default function HotelList({ hotels, onBook }) {
           key={hotel.id}
           className="bg-white rounded-2xl shadow-xl flex flex-col md:flex-row items-center hover:shadow-2xl transition-shadow duration-300"
         >
+          {/* Image Section (optional) */}
           {/* <img
             src={hotel.image || "/hotel-placeholder.jpg"}
             alt={hotel.name}
             className="w-full md:w-48 h-40 object-cover rounded-t-2xl md:rounded-l-2xl md:rounded-t-none"
             onError={(e) => (e.target.src = "/hotel-placeholder.jpg")}
           /> */}
+
+          {/* Content Section */}
           <div className="flex-1 p-6">
             <h3 className="text-xl font-bold text-gray-800 mb-1">
               {hotel.name}
@@ -23,7 +35,7 @@ export default function HotelList({ hotels, onBook }) {
             </div>
 
             <button
-              onClick={() => onBook(hotel)}
+              onClick={() => handleOnBook(hotel)}
               className="bg-amber-500 hover:bg-amber-600 text-white font-semibold py-2 px-6 rounded-lg shadow transition-colors duration-200"
             >
               Book Now
