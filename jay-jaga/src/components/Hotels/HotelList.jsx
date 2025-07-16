@@ -4,6 +4,16 @@ export default function HotelList({ hotels, setSelectedHotel }) {
   const navigate = useNavigate();
 
   const handleOnBook = (hotel) => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      // If user not logged in, redirect to login and pass intended route
+      return navigate("/login", {
+        state: { redirectTo: `/confirm-booking/${hotel.id}` },
+      });
+    }
+
+    // If logged in, set hotel and go to confirmation page
     setSelectedHotel(hotel);
     navigate(`/confirm-booking/${hotel.id}`);
   };
@@ -15,7 +25,7 @@ export default function HotelList({ hotels, setSelectedHotel }) {
           key={hotel.id}
           className="bg-white rounded-2xl shadow-xl flex flex-col md:flex-row items-center hover:shadow-2xl transition-shadow duration-300"
         >
-          {/* Image Section (optional) */}
+          {/* Optional image section */}
           {/* <img
             src={hotel.image || "/hotel-placeholder.jpg"}
             alt={hotel.name}
@@ -23,7 +33,6 @@ export default function HotelList({ hotels, setSelectedHotel }) {
             onError={(e) => (e.target.src = "/hotel-placeholder.jpg")}
           /> */}
 
-          {/* Content Section */}
           <div className="flex-1 p-6">
             <h3 className="text-xl font-bold text-gray-800 mb-1">
               {hotel.name}
