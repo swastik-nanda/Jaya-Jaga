@@ -1,7 +1,19 @@
 import { useParams } from "react-router-dom";
+import axios from "axios";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { differenceInCalendarDays, parseISO } from "date-fns";
 import NavBarSecondary from "../components/NavBarSecondary";
+
+const loadRazorpayScript = () => {
+  return new Promise((resolve) => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.onload = () => resolve(true);
+    script.onerror = () => resolve(false);
+    document.body.appendChild(script);
+  });
+};
 
 export default function ConfirmBooking() {
   const { id } = useParams();
@@ -12,6 +24,88 @@ export default function ConfirmBooking() {
   const [toDate, setToDate] = useState("");
   const [guests, setGuests] = useState(1);
   const [extraBed, setExtraBed] = useState(false);
+
+  const handleBookingPayment = async (e) => {
+    e.preventDefault();
+
+    if (!fromDate || !toDate || nights === 0) {
+      alert("Please select valid dates");
+      return;
+    }
+
+    const res = await loadRazorpayScript();
+    if (!res) {
+      alert("Failed to load Razorpay SDK");
+      return;
+    }
+
+    try {
+      // Step 1: Create order
+      const { data } = await axios.post(
+        "http://localhost:5000/api/payments/create-order",
+        {
+          totalPrice: totalPrice,
+        }
+      );
+
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID, // or process.env.REACT_APP...
+        amount: data.order.amount,
+        currency: "INR",
+        name: "Hotel Booking",
+        description: `Booking for ${hotel.name}`,
+        order_id: data.order.id,
+        handler: async function (response) {
+          // Step 2: Send to backend to verify + store booking
+          const token = localStorage.getItem("token");
+          const user = JSON.parse(localStorage.getItem("user"));
+          console.log("User from localStorage:", user);
+          const bookingData = {
+            hotelId: hotel.id,
+            hotelName: hotel.name,
+            fromDate,
+            toDate,
+            guests,
+            extraBed,
+            totalPrice,
+            name: user?.name,
+            razorpay_payment_id: response.razorpay_payment_id,
+            razorpay_order_id: response.razorpay_order_id,
+            razorpay_signature: response.razorpay_signature,
+          };
+          console.log("Final booking data sent to backend:", bookingData);
+
+          await axios.post(
+            "http://localhost:5000/api/payments/verify",
+            bookingData,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          toast.success("Booking successful!", {
+            position: "top-right",
+            autoClose: 3000,
+          });
+        },
+        prefill: {
+          name: "Swastik Nanda",
+          email: "test@example.com",
+          contact: "9999999999",
+        },
+        theme: {
+          color: "#f59e0b",
+        },
+      };
+
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    } catch (err) {
+      console.error(err);
+      alert("Payment failed. Please try again.");
+    }
+  };
 
   useEffect(() => {
     async function fetchHotelData() {
@@ -119,7 +213,8 @@ export default function ConfirmBooking() {
 
           {/* Confirm Button */}
           <button
-            type="submit"
+            type="button"
+            onClick={handleBookingPayment}
             className="mt-4 bg-amber-500 hover:bg-amber-600 text-white font-semibold py-2 px-6 rounded-lg shadow"
           >
             Confirm Booking

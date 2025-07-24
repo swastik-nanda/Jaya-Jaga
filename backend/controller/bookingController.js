@@ -21,7 +21,10 @@ const createBooking = async (req, res) => {
     }
 
     const booking = await Booking.create({
-      user: req.user.id, // assuming req.user is set by auth middleware
+      user: {
+        id: req.user._id,
+        name: req.user.name,
+      },
       hotelId,
       hotelName,
       fromDate,
