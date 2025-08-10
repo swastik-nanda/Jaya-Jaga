@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom"; // 1. useNavigate is imported
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { differenceInCalendarDays, parseISO } from "date-fns";
 import NavBarSecondary from "../components/NavBarSecondary";
 
+// Helper function to load the Razorpay SDK script
 const loadRazorpayScript = () => {
   return new Promise((resolve) => {
     const script = document.createElement("script");
@@ -17,6 +18,8 @@ const loadRazorpayScript = () => {
 
 export default function ConfirmBooking() {
   const { id } = useParams();
+  const navigate = useNavigate(); // 2. useNavigate hook is initialized
+
   const [hotel, setHotel] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -28,38 +31,38 @@ export default function ConfirmBooking() {
   const handleBookingPayment = async (e) => {
     e.preventDefault();
 
-    if (!fromDate || !toDate || nights === 0) {
-      alert("Please select valid dates");
+    if (!fromDate || !toDate || nights <= 0) {
+      toast.error("Please select valid check-in and check-out dates.");
       return;
     }
 
     const res = await loadRazorpayScript();
     if (!res) {
-      alert("Failed to load Razorpay SDK");
+      toast.error("Failed to load payment gateway. Please try again.");
       return;
     }
 
     try {
-      // Step 1: Create order
-      const { data } = await axios.post(
+      // Step 1: Create an order on your backend
+      const { data: orderData } = await axios.post(
         "http://localhost:5000/api/payments/create-order",
         {
           totalPrice: totalPrice,
         }
       );
 
+      // Step 2: Configure Razorpay options
       const options = {
-        key: import.meta.env.VITE_RAZORPAY_KEY_ID, // or process.env.REACT_APP...
-        amount: data.order.amount,
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+        amount: orderData.order.amount,
         currency: "INR",
-        name: "Hotel Booking",
+        name: "Jay Jagannath!",
         description: `Booking for ${hotel.name}`,
-        order_id: data.order.id,
+        order_id: orderData.order.id,
         handler: async function (response) {
-          // Step 2: Send to backend to verify + store booking
           const token = localStorage.getItem("token");
           const user = JSON.parse(localStorage.getItem("user"));
-          console.log("User from localStorage:", user);
+
           const bookingData = {
             hotelId: hotel.id,
             hotelName: hotel.name,
@@ -69,25 +72,37 @@ export default function ConfirmBooking() {
             extraBed,
             totalPrice,
             name: user?.name,
+            email: user?.email, // It's good to save the user's email
             razorpay_payment_id: response.razorpay_payment_id,
             razorpay_order_id: response.razorpay_order_id,
             razorpay_signature: response.razorpay_signature,
           };
-          console.log("Final booking data sent to backend:", bookingData);
 
-          await axios.post(
-            "http://localhost:5000/api/payments/verify",
-            bookingData,
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
+          try {
+            // Step 3: Verify payment and save booking on your backend
+            const { data: verificationData } = await axios.post(
+              "http://localhost:5000/api/payments/verify",
+              bookingData,
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            );
+
+            // Step 4: On successful verification, redirect to the confirmation page
+            if (verificationData.success && verificationData.booking?._id) {
+              toast.success("Booking Confirmed!");
+              navigate(`/booking-success/${verificationData.booking._id}`);
+            } else {
+              toast.error(
+                "Booking verification failed. Please contact support."
+              );
             }
-          );
-          toast.success("Booking successful!", {
-            position: "top-right",
-            autoClose: 3000,
-          });
+          } catch (err) {
+            console.error(err);
+            toast.error("An error occurred while confirming your booking.");
+          }
         },
         prefill: {
           name: "Swastik Nanda",
@@ -103,7 +118,7 @@ export default function ConfirmBooking() {
       paymentObject.open();
     } catch (err) {
       console.error(err);
-      alert("Payment failed. Please try again.");
+      toast.error("Payment failed. Please try again.");
     }
   };
 
@@ -132,7 +147,7 @@ export default function ConfirmBooking() {
     const start = parseISO(fromDate);
     const end = parseISO(toDate);
     nights = differenceInCalendarDays(end, start);
-    if (nights < 1) nights = 0;
+    if (nights < 0) nights = 0; // Prevent negative nights
   }
 
   const basePrice = hotel.price || 0;
@@ -141,7 +156,7 @@ export default function ConfirmBooking() {
 
   return (
     <div className="mt-20">
-      <NavBarSecondary></NavBarSecondary>
+      <NavBarSecondary />
       <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl p-6 mt-10">
         <h1 className="text-3xl font-bold mb-4 text-amber-600">
           Confirm Booking: {hotel.name}
@@ -149,7 +164,6 @@ export default function ConfirmBooking() {
         <p className="text-gray-700 mb-2">📍 {hotel.address}</p>
 
         <form className="space-y-4 mt-6">
-          {/* Date Inputs */}
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1">
               <label className="block text-sm font-medium text-gray-700">
@@ -175,7 +189,6 @@ export default function ConfirmBooking() {
             </div>
           </div>
 
-          {/* Guests */}
           <div>
             <label className="block text-sm font-medium text-gray-700">
               Number of Guests
@@ -189,35 +202,32 @@ export default function ConfirmBooking() {
             />
           </div>
 
-          {/* Extra Bed */}
           <div className="flex items-center gap-2">
             <input
               type="checkbox"
               id="extraBed"
               checked={extraBed}
               onChange={() => setExtraBed(!extraBed)}
-              className="h-5 w-5 text-amber-500"
+              className="h-5 w-5 text-amber-500 rounded border-gray-300 focus:ring-amber-500"
             />
             <label htmlFor="extraBed" className="text-sm text-gray-700">
               Add extra bed (+10% per night)
             </label>
           </div>
 
-          {/* Total Price */}
-          <div className="text-lg font-semibold text-green-700">
+          <div className="text-lg font-semibold text-gray-800">
             Total Nights: {nights || 0}
           </div>
-          <div className="text-xl font-bold text-green-800">
+          <div className="text-xl font-bold text-green-700">
             Final Price: ₹{nights > 0 ? totalPrice : 0}
           </div>
 
-          {/* Confirm Button */}
           <button
             type="button"
             onClick={handleBookingPayment}
-            className="mt-4 bg-amber-500 hover:bg-amber-600 text-white font-semibold py-2 px-6 rounded-lg shadow"
+            className="w-full mt-4 bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-6 rounded-lg shadow transition-transform transform hover:scale-105"
           >
-            Confirm Booking
+            Confirm & Pay ₹{nights > 0 ? totalPrice : 0}
           </button>
         </form>
       </div>

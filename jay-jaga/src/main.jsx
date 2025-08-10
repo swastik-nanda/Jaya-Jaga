@@ -15,6 +15,7 @@ import HotelBooking from "./pages/HotelBooking";
 import ConfirmBooking from "./pages/ConfirmBooking";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import SuccessfulPayment from "./pages/SuccessfulPayment";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -32,6 +33,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="/confirm-booking/:id" element={<ConfirmBooking />} />
+        <Route path="/booking-success/:id" element={<SuccessfulPayment />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
