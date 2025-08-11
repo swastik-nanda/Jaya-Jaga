@@ -50,10 +50,9 @@ const verifyPayment = async (req, res) => {
     name,
   } = req.body;
   console.log("📦 Received in /verify:", req.body);
-  const userId = req.user._id; // Comes from protect middleware
+  const userId = req.user._id;
 
   try {
-    // 1. Verify Razorpay signature
     const body = razorpay_order_id + "|" + razorpay_payment_id;
     const expectedSignature = crypto
       .createHmac("sha256", process.env.RAZORPAY_TEST_KEY_SECRET)
@@ -68,7 +67,6 @@ const verifyPayment = async (req, res) => {
 
     console.log("✅ Razorpay signature verified");
 
-    // 2. Create booking
     const booking = await Booking.create({
       user: userId,
       name,

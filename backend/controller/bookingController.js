@@ -1,11 +1,5 @@
 const Booking = require("../models/Booking");
 
-/**
- * @desc    Get a single booking by its ID
- * @route   GET /api/bookings/:id
- * @access  Protected
- * @purpose This is the new function your frontend confirmation page will call.
- */
 const getBookingById = async (req, res) => {
   try {
     const booking = await Booking.findById(req.params.id).populate(
@@ -17,7 +11,6 @@ const getBookingById = async (req, res) => {
       return res.status(404).json({ message: "Booking not found" });
     }
 
-    // Optional: Check if the booking belongs to the user making the request
     if (booking.user._id.toString() !== req.user._id.toString()) {
       return res.status(401).json({ message: "Not authorized" });
     }
@@ -29,12 +22,6 @@ const getBookingById = async (req, res) => {
   }
 };
 
-/**
- * @desc    Create a new booking
- * @route   POST /api/bookings
- * @access  Protected
- * @update  Modified to store only the user's ID, aligning with best practices.
- */
 const createBooking = async (req, res) => {
   const { hotelId, hotelName, fromDate, toDate, guests, extraBed, totalPrice } =
     req.body;
@@ -52,7 +39,7 @@ const createBooking = async (req, res) => {
     }
 
     const booking = await Booking.create({
-      user: req.user._id, // Storing only the user's ID reference
+      user: req.user._id,
       hotelId,
       hotelName,
       fromDate,
@@ -72,15 +59,8 @@ const createBooking = async (req, res) => {
   }
 };
 
-/**
- * @desc    Get all bookings for the logged-in user
- * @route   GET /api/bookings/my
- * @access  Protected
- * @update  Corrected query to work with the user ID reference.
- */
 const getMyBookings = async (req, res) => {
   try {
-    // This query now correctly finds bookings by the user's ID
     const bookings = await Booking.find({ user: req.user._id }).sort({
       createdAt: -1,
     });
@@ -94,5 +74,5 @@ const getMyBookings = async (req, res) => {
 module.exports = {
   createBooking,
   getMyBookings,
-  getBookingById, // Export the new function
+  getBookingById,
 };
