@@ -40,7 +40,9 @@ export default function HotelList({ hotels, setSelectedHotel }) {
             <p className="text-gray-500 mb-2">{hotel.address}</p>
             <div className="flex items-center gap-4 text-gray-700 mb-3">
               <span className="text-sm">⭐ {hotel.rating || "—"}</span>
-              <span className="text-sm">₹{hotel.price || "—"}/night</span>
+              <span className="text-sm font-bold">
+                ₹{hotel.price || "—"}/night
+              </span>
             </div>
 
             <button
