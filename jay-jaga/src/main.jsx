@@ -16,6 +16,7 @@ import ConfirmBooking from "./pages/ConfirmBooking";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import SuccessfulPayment from "./pages/SuccessfulPayment";
+import CrowdIntensityMain from "./components/CrowdIntensity/CrowdIntensityMain";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -28,6 +29,10 @@ createRoot(document.getElementById("root")).render(
         <Route path="/history" element={<History />} />
         <Route path="/rathyatra" element={<Rathyatra />} />
         <Route path="/gallery" element={<Gallery></Gallery>}></Route>
+        <Route
+          path="/crowd"
+          element={<CrowdIntensityMain></CrowdIntensityMain>}
+        ></Route>
         <Route path="/contact" element={<Contact></Contact>}></Route>
         <Route path="/hotels" element={<HotelBooking></HotelBooking>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
