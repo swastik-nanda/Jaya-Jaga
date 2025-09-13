@@ -7,6 +7,7 @@ const hotelRouter = require("./routes/hotelsRouter");
 const userRouter = require("./routes/userRouter");
 const bookingRouter = require("./routes/bookingRouter");
 const paymentRoutes = require("./routes/paymentRoutes");
+const crowdRoutes = require("./routes/crowdRouter");
 
 dotenv.config();
 const app = express();
@@ -19,6 +20,7 @@ app.use("/api/hotels", hotelRouter);
 app.use("/api/users", userRouter);
 app.use("/api/booking", bookingRouter);
 app.use("/api/payments", paymentRoutes);
+app.use("/api/crowd", crowdRoutes);
 
 // MongoDB Connection & Server Start
 const PORT = process.env.PORT || 5000;
