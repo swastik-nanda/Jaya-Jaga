@@ -1,17 +1,19 @@
+// This file contains helper functions used across the feature's components.
+
 export const getCrowdColor = (level) => {
   switch (level) {
     case "Low":
-      return "#10b981";
+      return "#10b981"; // Green
     case "Moderate":
-      return "#f59e0b";
+      return "#f59e0b"; // Yellow
     case "High":
-      return "#f97316";
+      return "#f97316"; // Orange
     case "Very High":
-      return "#ef4444";
+      return "#ef4444"; // Red
     case "Critical":
-      return "#8b5cf6";
+      return "#8b5cf6"; // Purple
     default:
-      return "#6b7280";
+      return "#6b7280"; // Gray
   }
 };
 

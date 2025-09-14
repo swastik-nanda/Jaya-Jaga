@@ -17,6 +17,7 @@ export const MapPin = ({ className }) => (
     <circle cx="12" cy="10" r="3"></circle>
   </svg>
 );
+
 export const Users = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -36,6 +37,7 @@ export const Users = ({ className }) => (
     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
   </svg>
 );
+
 export const Cloud = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -52,6 +54,7 @@ export const Cloud = ({ className }) => (
     <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
   </svg>
 );
+
 export const Clock = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -69,6 +72,7 @@ export const Clock = ({ className }) => (
     <polyline points="12 6 12 12 16 14"></polyline>
   </svg>
 );
+
 export const AlertTriangle = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"

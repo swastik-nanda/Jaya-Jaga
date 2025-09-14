@@ -1,7 +1,7 @@
 import React from "react";
 import { getCrowdColor } from "../../utils/utils";
 
-const MapPanel = ({ locations, handleMarkerClick }) => {
+function MapPanel({ locations, handleMarkerClick }) {
   return (
     <main className="w-2/3 bg-white p-6 border-r border-gray-200 flex flex-col">
       <div className="bg-amber-50 rounded-lg h-full p-4 relative flex items-center justify-center border border-amber-200">
@@ -12,7 +12,7 @@ const MapPanel = ({ locations, handleMarkerClick }) => {
           viewBox="0 0 600 500"
           className="w-full h-full max-h-[600px] mx-auto rounded-lg"
         >
-          {/* SVG definitions and static map elements */}
+          {/* Static map background elements */}
           <defs>
             <pattern
               id="dot-pattern"
@@ -184,38 +184,25 @@ const MapPanel = ({ locations, handleMarkerClick }) => {
             Swargadwar
           </text>
 
-          {/* Dynamic Markers */}
+          {/* Markers */}
           {locations.map((location) => (
             <g
               key={location.id}
               className="cursor-pointer map-label-group"
               onClick={() => handleMarkerClick(location)}
             >
-              <circle cx={location.x} cy={location.y} r="20">
-                <animate
-                  attributeName="r"
-                  values="15;25;15"
-                  dur="2s"
-                  repeatCount="indefinite"
-                />
-                <animate
-                  attributeName="fill-opacity"
-                  values="0.3;0.1;0.3"
-                  dur="2s"
-                  repeatCount="indefinite"
-                />
-                <animate
-                  attributeName="fill"
-                  values={`${getCrowdColor(
-                    location.crowdLevel
-                  )};${getCrowdColor(location.crowdLevel)}`}
-                  dur="2s"
-                  repeatCount="indefinite"
-                />
-              </circle>
+              {/* CORRECTED: Accessing coordinates via location.coords */}
               <circle
-                cx={location.x}
-                cy={location.y}
+                cx={location.coords.x}
+                cy={location.coords.y}
+                r="20"
+                fill={getCrowdColor(location.crowdLevel)}
+                fillOpacity="0.3"
+                className="animate-pulse"
+              />
+              <circle
+                cx={location.coords.x}
+                cy={location.coords.y}
                 r="8"
                 fill={getCrowdColor(location.crowdLevel)}
                 stroke="#854d0e"
@@ -223,12 +210,16 @@ const MapPanel = ({ locations, handleMarkerClick }) => {
               />
             </g>
           ))}
-          {/* Dynamic Labels */}
+          {/* Labels */}
           {locations.map((location) => (
             <g key={`label-${location.id}`} className="pointer-events-none">
+              {/* CORRECTED: Accessing coordinates via location.coords */}
               <text
-                x={location.x}
-                y={location.y + (location.labelPos === "bottom" ? 26 : -20)}
+                x={location.coords.x}
+                y={
+                  location.coords.y +
+                  (location.labelPos === "bottom" ? 26 : -20)
+                }
                 textAnchor="middle"
                 className="fill-gray-800 text-xs font-bold"
                 style={{ filter: "url(#label-bg-filter)" }}
@@ -236,8 +227,8 @@ const MapPanel = ({ locations, handleMarkerClick }) => {
                 {location.shortName}
               </text>
               <text
-                x={location.x}
-                y={location.y - 35}
+                x={location.coords.x}
+                y={location.coords.y - 35}
                 textAnchor="middle"
                 className="fill-gray-900 text-sm font-bold opacity-0 full-label transition-opacity duration-300"
                 style={{ filter: "url(#label-bg-filter)" }}
@@ -250,6 +241,6 @@ const MapPanel = ({ locations, handleMarkerClick }) => {
       </div>
     </main>
   );
-};
+}
 
 export default MapPanel;
