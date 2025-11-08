@@ -197,7 +197,7 @@ Final values categorized into → *Low, Moderate, High, Very High, Critical.*
 |--------|-----------|--------------|
 | **KNN** | 84.0% | Simple and interpretable baseline model |
 | **Random Forest** | 85.9% | Good accuracy but struggled with rare “Critical” cases |
-| **XGBoost 🏆** | **87.4%** | Best accuracy and superior F1-score (92%) on the “Critical” class |
+| **XGBoost 🏆** | **87.4%** | Best accuracy and superior F1-score (92%) on the “Critical” class and a Recall of 94%! |
 
 ✅ **Final Choice:** *XGBoost* — due to its balanced performance, speed, and reliability for safety-critical predictions.
 
