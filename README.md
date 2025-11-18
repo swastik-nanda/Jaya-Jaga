@@ -1,4 +1,4 @@
-# 🌺 **Jay Jagannath: Rath Yatra Guide & AI Crowd Safety App**
+# 🌺 **Jay Jaga: Rath Yatra Guide & AI Crowd Safety App**
 
 ### 🛠️ *MERN Stack • Python • Flask API • Machine Learning*
 
@@ -6,7 +6,7 @@
 
 ## 🎯 **Overview**
 
-**Jay Jagannath** is a comprehensive full-stack application designed as the ultimate companion for the **Rath Yatra festival in Puri**.  
+**Jay Jaga** is a comprehensive full-stack application designed as the ultimate companion for the **Rath Yatra festival in Puri**.  
 It combines a rich, interactive **MERN stack** frontend with a powerful **Python AI backend**, offering both cultural insights and a **real-time crowd safety prediction service**.
 
 The app allows users to:
@@ -224,7 +224,7 @@ Response Example (200 OK):
 ---
 ## 🌈 **Summary**
 
-Jay Jagannath blends cultural reverence with cutting-edge AI safety,
+Jay Jaga blends cultural reverence with cutting-edge AI safety,
 making it more than just an app — it’s a festival companion and safety tool
 for one of the world’s most iconic religious events.
 
