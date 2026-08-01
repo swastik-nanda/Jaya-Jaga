@@ -3,3 +3,5 @@ xgboost
 pandas
 flask
 joblib
+catboost
+lightgbm

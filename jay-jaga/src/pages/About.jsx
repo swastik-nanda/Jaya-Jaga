@@ -1,4 +1,4 @@
-import NavBarSecondary from "../components/NavBarSecondary";
+import Navbar from "../components/Navbar";
 import data from "../data.json";
 import Content from "../Contents/Content";
 
@@ -35,7 +35,7 @@ function About() {
 
   return (
     <>
-      <NavBarSecondary></NavBarSecondary>
+      <Navbar />
       <section className="mt-5 min-h-screen bg-gradient-to-br from-amber-50 to-orange-50 py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           {/* Text above hero image */}

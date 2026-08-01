@@ -74,3 +74,10 @@ Desktop.ini
 # Mac system files
 *.DS_Store
 
+# Planning files
+*_plan.md
+System_Design_Jay_Jaga.md
+current\ state.md
+
+# Data files (Synthetic output)
+*.csv

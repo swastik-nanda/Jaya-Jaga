@@ -5,62 +5,80 @@ from flask import Flask, request, jsonify
 # 1. Initialize the Flask App
 app = Flask(__name__)
 
-# 2. Load the Saved Artifacts (Model, Scaler, Encoder)
+# 2. Load the Saved Artifacts
 # These are loaded only once when the app starts.
 model = joblib.load('jay-jaga-xgb-model.joblib')
-scaler = joblib.load('jay-jaga-xgb-model-scaler.joblib')
-encoder = joblib.load('jay-jaga-xgb-model-encoder.joblib')
-
-# These are the columns our model was trained on, in the correct order.
-# We'll need this to ensure the incoming data has the same structure.
-model_columns = [
-    'hour', 'location_Baisi Pahacha (22 Steps)', 
-    'location_Grand Road (Bada Danda)', 'location_Main Temple Gate (Singhadwara)',
-    'location_Northern Gate (Hasti Dwara)', 'location_Southern Gate (Aswadwara)',
-    'location_Swargadwar Cremation Ground', 'location_Western Gate (Vyaghra Dwara)',
-    'event_Rath Yatra Day', 'weather_condition_Heavy Rain', 
-    'weather_condition_Humid', 'weather_condition_Rainy', 'weather_condition_Sunny'
-]
+encoder = joblib.load('label_encoder.joblib')
+model_columns = joblib.load('model_columns.joblib')
 
 # 3. Create the Prediction Endpoint
 @app.route('/predict', methods=['POST'])
 def predict():
-    # Get the JSON data sent from the request
-    json_data = request.get_json()
-    
-    # Create a pandas DataFrame from the received JSON data
-    # The [0] is because we expect a single prediction at a time
-    input_df = pd.DataFrame([json_data])
-    
-    # --- Preprocessing the Input Data ---
-    # This is the most critical step. The new data must be processed
-    # in the exact same way as the training data.
+    try:
+        # Get the JSON data sent from the request
+        json_data = request.get_json()
+        
+        # Backend sends 'weather_condition', model expects 'weather'
+        if 'weather_condition' in json_data:
+            json_data['weather'] = json_data.pop('weather_condition')
+            
+        # Create a pandas DataFrame
+        input_df = pd.DataFrame([json_data])
+        
+        # Convert categorical columns explicitly to pandas 'category' type
+        # to match xgboost enable_categorical=True requirements
+        categorical_cols = ["location", "weather", "event"]
+        for col in categorical_cols:
+            if col in input_df.columns:
+                input_df[col] = input_df[col].astype('category')
+        
+        # --- Preprocessing the Input Data ---
+        # Get dummies for the input
+        input_df = pd.get_dummies(input_df, columns=categorical_cols)
+        
+        # Align columns with the model's expected columns
+        input_df = input_df.reindex(columns=model_columns, fill_value=0)
+        
+        # --- Make the Prediction ---
+        prediction_encoded = model.predict(input_df)
+        
+        # Convert the numerical prediction back to text label
+        prediction_label = encoder.inverse_transform(prediction_encoded)[0]
+        
+        return jsonify({'predicted_crowd_level': prediction_label})
+    except Exception as e:
+        print(f"Error predicting: {str(e)}")
+        return jsonify({'error': str(e)}), 500
 
-    # a. One-Hot Encode the categorical features
-    # This creates columns for 'location', 'event', and 'weather_condition'
-    input_df = pd.get_dummies(input_df)
-
-    # b. Align columns with the model's training columns
-    # This adds any missing one-hot encoded columns (and fills them with 0)
-    # and ensures the column order is identical to what the model expects.
-    input_df = input_df.reindex(columns=model_columns, fill_value=0)
-
-    # --- Make the Prediction ---
-    
-    # c. Scale the data using the loaded scaler
-    scaled_input = scaler.transform(input_df)
-    
-    # d. Get the model's prediction (it will be a number, e.g., 2)
-    prediction_encoded = model.predict(scaled_input)
-    
-    # e. Convert the numerical prediction back to its original text label
-    prediction_label = encoder.inverse_transform(prediction_encoded)[0]
-    
-    # Return the prediction as a JSON response
-    return jsonify({'predicted_crowd_level': prediction_label})
+@app.route('/batch-predict', methods=['POST'])
+def batch_predict():
+    try:
+        json_data = request.get_json()
+        # json_data is a list of dictionaries
+        
+        for item in json_data:
+            if 'weather_condition' in item:
+                item['weather'] = item.pop('weather_condition')
+                
+        input_df = pd.DataFrame(json_data)
+        
+        categorical_cols = ["location", "weather", "event"]
+        for col in categorical_cols:
+            if col in input_df.columns:
+                input_df[col] = input_df[col].astype('category')
+                
+        input_df = pd.get_dummies(input_df, columns=categorical_cols)
+        input_df = input_df.reindex(columns=model_columns, fill_value=0)
+        
+        predictions_encoded = model.predict(input_df)
+        prediction_labels = encoder.inverse_transform(predictions_encoded)
+        
+        return jsonify({'predictions': prediction_labels.tolist()})
+    except Exception as e:
+        print(f"Error in batch predict: {str(e)}")
+        return jsonify({'error': str(e)}), 500
 
 # 4. Run the App
 if __name__ == '__main__':
-    # host='0.0.0.0' makes the app accessible from your network
-    # port=5000 is the standard port for Flask apps
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # port=5001 to avoid conflict with Node.js backend
+    app.run(host='0.0.0.0', port=5001, debug=True)

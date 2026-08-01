@@ -1,30 +1,131 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
+
+/* ─── Sacred Palette Design Tokens ─────────────────────────────────────── */
+:root {
+  --color-gold:       #C9922D;   /* Primary — marigold temple gold */
+  --color-gold-light: #E8B455;   /* Lighter gold for hover states */
+  --color-saffron:    #E8540A;   /* Accent — deep saffron */
+  --color-sindoor:    #B52020;   /* Danger/Critical — sindoor red */
+  --color-midnight:   #0F0A1E;   /* Dark background — temple at night */
+  --color-midnight-95: rgba(15, 10, 30, 0.95);
+  --color-ivory:      #FFFBF0;   /* Light background — lamp glow ivory */
+  --color-cream:      #F5EDD4;   /* Body text on dark backgrounds */
+  --color-muted:      #7C6F5B;   /* Subdued text on light backgrounds */
+
+  /* Crowd status colors */
+  --crowd-low:        #22c55e;
+  --crowd-moderate:   #eab308;
+  --crowd-high:       #f97316;
+  --crowd-very-high:  #ef4444;
+  --crowd-critical:   #B52020;
+}
+
+/* ─── Base ──────────────────────────────────────────────────────────────── */
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    font-family: "Inter", sans-serif;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    background-color: var(--color-ivory);
+    color: var(--color-midnight);
+    -webkit-font-smoothing: antialiased;
   }
 }
 
+/* ─── Utilities ─────────────────────────────────────────────────────────── */
 @layer utilities {
   .font-playfair {
-    font-family: "Playfair Display", serif;
+    font-family: "Playfair Display", Georgia, serif;
   }
 
   .text-shadow {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
+  .text-shadow-lg {
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+  }
+
   .backdrop-blur-custom {
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Gold animated underline — used for nav active states */
+  .gold-underline {
+    position: relative;
+  }
+  .gold-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-gold);
+    transition: width 0.3s ease;
+  }
+  .gold-underline:hover::after,
+  .gold-underline.active::after {
+    width: 100%;
+  }
+
+  /* Crowd dot pulse animation */
+  .crowd-dot-pulse {
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
+  }
+
+  /* Shimmer skeleton effect */
+  .shimmer {
+    background: linear-gradient(90deg, #e8e0d0 25%, #f5edd4 50%, #e8e0d0 75%);
+    background-size: 200% 100%;
+    animation: shimmer-anim 1.5s infinite;
+  }
+
+  @keyframes shimmer-anim {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* Draw-in gold underline for hero title */
+  .hero-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .hero-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-gold), var(--color-saffron));
+    animation: draw-line 1.2s 0.5s ease forwards;
+  }
+  @keyframes draw-line {
+    to { width: 100%; }
   }
 }
 
-/* Custom scrollbar */
+/* ─── Custom Scrollbar ──────────────────────────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-midnight);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-saffron);
 }

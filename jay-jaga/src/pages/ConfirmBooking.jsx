@@ -3,7 +3,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { differenceInCalendarDays, parseISO } from "date-fns";
-import NavBarSecondary from "../components/NavBarSecondary";
+import Navbar from "../components/Navbar";
+import IntelligenceBanner from "../components/IntelligenceBanner";
 
 // Helper function to load the Razorpay SDK script
 const loadRazorpayScript = () => {
@@ -105,9 +106,9 @@ export default function ConfirmBooking() {
           }
         },
         prefill: {
-          name: "Swastik Nanda",
-          email: "test@example.com",
-          contact: "9999999999",
+          name: user?.name || "",
+          email: user?.email || "",
+          contact: "",
         },
         theme: {
           color: "#f59e0b",
@@ -155,8 +156,9 @@ export default function ConfirmBooking() {
   const totalPrice = (nightlyRate * nights).toFixed(0);
 
   return (
-    <div className="mt-20">
-      <NavBarSecondary />
+    <div className="mt-16">
+      <Navbar />
+      <IntelligenceBanner />
       <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl p-6 mt-10">
         <h1 className="text-3xl font-bold mb-4 text-amber-600">
           Confirm Booking: {hotel.name}
