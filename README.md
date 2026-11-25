@@ -97,8 +97,8 @@ This project has **two components** that must run simultaneously:
 
 #### 🧩 Clone the Repository
 ```bash
-git clone https://github.com/your-username/jay-jagannath.git
-cd jay-jagannath
+git clone https://github.com/swastik-nanda/Jaya-Jaga.git
+cd Jaya-Jaga
 📦 Install Backend Dependencies
 cd server
 npm install
